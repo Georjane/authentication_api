@@ -14,5 +14,5 @@ class SessionsController < ApplicationController
     else
       render json: { status: 401 }
     end
-    end
+  end
 end
