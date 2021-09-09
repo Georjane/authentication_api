@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :hotels
-  has_many :favourites
+  has_many :favorites
 
   validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
