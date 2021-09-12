@@ -1,9 +1,10 @@
 class FavoritesController  < ApplicationController
   before_action :set_favorite, only: [:show, :update, :destroy]
   def index
+    @favorites = Favorite.all
     # @favorites = Favorite.all.map(&:hotel)
     # if @current_user
-      @favorites = @current_user.favorites.map(&:hotel)
+      # @favorites = @current_user.favorites.map(&:hotel)
       # @favorites = @current_user.favorites
       # @hotels = @favorites.find_by(hotel_id: params["user"]["email"])
     #   json_response(@favorites)
