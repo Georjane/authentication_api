@@ -35,7 +35,7 @@ You will create a REST API to manage database resources. The api has the followi
 - When a user selects a hotel, detailed information about the hotel is presented and the possibility to add it to favourites. The user can access a list of favourite hotels
 
 ## Redux - Hotels & Resorts RoR RESTful API Screenshot
-![Redux - Hotels & Resorts RoR RESTful API]()
+![Redux - Hotels & Resorts](https://user-images.githubusercontent.com/60772732/133516851-33c8472f-44d3-4a75-b9ba-6f7ce2e38987.png)
 
 ## Live Link on Netlify
 - [Redux - Hotels & Resorts RoR RESTful API](https://keen-fermat-a31782.netlify.app)
