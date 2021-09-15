@@ -23,7 +23,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 gem 'rubocop', '>= 1.0', '< 2.0'
-
+gem 'rails_12factor'
+gem 'foreman'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
