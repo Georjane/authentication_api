@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Hotels", type: :request do
+RSpec.describe 'Hotels', type: :request do
   # initialize test data
   let!(:hotels) { create_list(:hotel, 1) }
   let!(:hotel_id) { hotels.first.id }
@@ -8,7 +8,7 @@ RSpec.describe "Hotels", type: :request do
   # Test suite for GET /hotel
   describe 'GET /hotels' do
     # make HTTP get request before each example
-    before { get '/hotels', headers: { withCredentials: true }  }
+    before { get '/hotels', headers: { withCredentials: true } }
     it 'returns hotels' do
       expect(json).not_to be_empty
       expect(json.size).to eq(1)
@@ -41,7 +41,7 @@ RSpec.describe "Hotels", type: :request do
 
   describe 'POST /hotels/:id' do
     let(:valid_attributes) do
-      { title: 'Hotel name', description: 'Hotel description', image_url: 'image.png'}
+      { title: 'Hotel name', description: 'Hotel description', image_url: 'image.png' }
     end
     context 'when request attributes are valid' do
       before { post '/hotels', params: valid_attributes, headers: { withCredentials: true } }

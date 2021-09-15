@@ -1,13 +1,13 @@
-class HotelsController  < ApplicationController
-  before_action :set_hotel, only: [:show, :update, :destroy]
+class HotelsController < ApplicationController
+  before_action :set_hotel, only: %i[show update destroy]
   def index
     @hotels = Hotel.all
     # if @current_user
-      # @hotels = @current_user.hotels
+    # @hotels = @current_user.hotels
     #   json_response(@hotels)
     # else
-      # @hotels = Hotel.all
-      json_response(@hotels)
+    # @hotels = Hotel.all
+    json_response(@hotels)
     # end
   end
 

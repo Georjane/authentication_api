@@ -5,4 +5,4 @@ FactoryBot.define do
     image_url { Faker::Lorem.word }
     user { create(:user) }
   end
- end
+end
