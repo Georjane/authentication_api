@@ -7240,10 +7240,10 @@
   dependencies:
     "css-tree" "^1.0.0"
 
-"stylelint-scss@^3.20.1":
-  "integrity" "sha512-OTd55O1TTAC5nGKkVmUDLpz53LlK39R3MImv1CfuvsK7/qugktqiZAeQLuuC4UBhzxCnsc7fp9u/gfRZwFAIkA=="
-  "resolved" "https://registry.npmjs.org/stylelint-scss/-/stylelint-scss-3.20.1.tgz"
-  "version" "3.20.1"
+"stylelint-scss@^3.21.0":
+  "integrity" "sha512-CMI2wSHL+XVlNExpauy/+DbUcB/oUZLARDtMIXkpV/5yd8nthzylYd1cdHeDMJVBXeYHldsnebUX6MoV5zPW4A=="
+  "resolved" "https://registry.npmjs.org/stylelint-scss/-/stylelint-scss-3.21.0.tgz"
+  "version" "3.21.0"
   dependencies:
     "lodash" "^4.17.15"
     "postcss-media-query-parser" "^0.2.3"
