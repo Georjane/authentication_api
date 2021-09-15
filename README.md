@@ -91,8 +91,8 @@ There are two ways of contributing to this project:
 Give a ⭐️ if you like this project!
 
 ## Design Inspiration
-- Design idea by []()
-- All design inspiration info can be found [here]()
+- All design inspiration info can be found [here](https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App))
 
 ## Acknowledgment
 * [Microverse](https://www.microvese.org)
+* Design idea by [Alexey Savitskiy on Behance](https://www.behance.net/alexey_savitskiy)
