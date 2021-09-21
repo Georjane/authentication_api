@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       user_info = {
-        "user": user[:username],
-        "email": user[:email]
+        user: user[:username],
+        email: user[:email]
       }
       render json: {
         status: :created,
