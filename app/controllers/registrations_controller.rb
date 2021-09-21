@@ -10,6 +10,7 @@ class RegistrationsController < ApplicationController
     if user
       session[:user_id] = user.id
       user_info = {
+        id: user[:id],
         user: user[:username],
         email: user[:email]
       }
