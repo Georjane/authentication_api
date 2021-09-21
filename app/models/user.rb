@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :hotels
   has_many :favorites
 
-  validates :username, presence: true, length: { minimum: 3 }
-  validates :email, presence: true
-  validates_uniqueness_of :username, :email
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
+  validates :email, presence: true, uniqueness: true
 end
