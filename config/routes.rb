@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   resources :hotels, only: %i[index create show destroy]
   resources :favorites, only: %i[index create show destroy]
   resources :registrations, only: :create
-
   match '/logout', to: 'sessions#destroy', via: :delete
 end

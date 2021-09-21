@@ -6,10 +6,14 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      user_info = {
+        "user": user[:username],
+        "email": user[:email]
+      }
       render json: {
         status: :created,
         logged_in: true,
-        user: user
+        user: user_info
       }
     else
       render json: { status: 401 }
