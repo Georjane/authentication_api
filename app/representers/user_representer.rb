@@ -7,6 +7,7 @@ class UserRepresenter
     {
       id: user.id,
       username: user.username,
+      email: user.email,
       token: AuthenticationTokenService.call(user.id)
     }
   end

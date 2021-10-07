@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
     if user.save
       render json: UserRepresenter.new(user).as_json, status: :created
     else
-      render json: { status: 422 }
+      render json: { error: user.errors.full_messages.first }, status: :unprocessable_entity
     end
   end
 

@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'Hotels', type: :request do
-  let!(:hotels) { create_list(:hotel, 5) }
+  let!(:hotels) { create_list(:hotel, 1) }
+  let(:hotel) {FactoryBot.create(:hotel, title: 'This is the hotel title', description: 'This is the hotel desc', image_url: 'img.url')}
   let!(:hotel_id) { hotels.first.id }
-  let(:user) { FactoryBot.create(:user, username: 'myusername', email: 'user1@gmail.com', password: 'password') }
+  let(:user) { FactoryBot.create(:user, username: 'user1', email: 'user1@gmail.com', password: 'password') }
+
   describe 'GET /hotels' do
     # before { get '/hotels', headers: { withCredentials: true } }
     before { get '/hotels' }
     it 'returns hotels' do
       expect(json).not_to be_empty
-      expect(json.size).to eq(5)
+      expect(json.size).to eq(1)
     end
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
@@ -17,7 +19,8 @@ RSpec.describe 'Hotels', type: :request do
   end
 
   describe 'GET /hotels/:id' do
-    before { get "/hotels/#{hotel_id}", headers: { withCredentials: true } }
+    before { get "/hotels/#{hotel_id}" }
+    # before { get "/hotels/#{hotel_id}", headers: { withCredentials: true } }
     context 'when hotel exists' do
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
@@ -28,10 +31,10 @@ RSpec.describe 'Hotels', type: :request do
     end
   end
 
-  describe 'POST /hotel' do
+  describe 'POST /hotels' do
     # describe 'POST /hotels/:id' do
     let(:valid_attributes) do
-      { title: 'Hotel name', description: 'Hotel description', image_url: 'image.png' }
+      { title: 'Hotel name', description: 'Hotel description', image_url: 'image.png', user_id: user.id }
     end
     context 'when request attributes are valid' do
       before { post '/hotels', params: valid_attributes }
@@ -40,6 +43,9 @@ RSpec.describe 'Hotels', type: :request do
       #   expect(response).to have_http_status(201)
       # end
       it 'creates a hotel' do
+        puts 'json============='
+        puts json
+        puts 'json================'
         expect(json['title']).to eq('Hotel name')
       end
       it 'returns status code 201' do
