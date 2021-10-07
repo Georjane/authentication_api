@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :authenticate_request!
+  # before_action :authenticate_request!
   before_action :set_hotel, only: %i[show update destroy]
   def index
     @hotels = Hotel.all
@@ -8,7 +8,13 @@ class HotelsController < ApplicationController
 
   def create
     @hotel = Hotel.create(hotel_params)
-    json_response(@hotel, :created)
+    if @hotel.save
+      # render json: hotelRepresenter.new(@hotel).as_json, status: :created
+      json_response(@hotel, :created)
+    else
+      json_response(@hotel.errors, :unprocessable_entity)
+      # render json: @hotel.errors, status: :unprocessable_entity
+    end
   end
 
   def show
