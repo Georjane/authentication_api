@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_request!
   before_action :set_favorite, only: %i[show update destroy]
   def index
     @favorites = Favorite.all
@@ -6,8 +7,12 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.create(favorite_params)
-    json_response(@favorite, :created)
+    @favorite = current_user!.favorites.create(favorite_params)
+    if @favorite.save
+      json_response(@favorite, :created)
+    end
+    # @favorite = Favorite.create(favorite_params)
+    # json_response(@favorite, :created)
   end
 
   def show
