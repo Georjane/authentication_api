@@ -7,7 +7,7 @@ class HotelsController < ApplicationController
   end
 
   def create
-    @hotel = Hotel.create(hotel_params)
+    @hotel = Hotel.create!(hotel_params)
     if @hotel.save
       json_response(@hotel, :created)
     else
