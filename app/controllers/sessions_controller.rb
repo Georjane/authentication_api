@@ -47,7 +47,6 @@ class SessionsController < ApplicationController
   # end
 
   def destroy
-    reset_session
     render json: { status: 200, loggout_out: true }
   end
 end

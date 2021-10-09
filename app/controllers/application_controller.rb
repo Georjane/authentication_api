@@ -5,12 +5,10 @@ class ApplicationController < ActionController::Base
   
   def authenticate_request!
     puts '-------------payload'
-    puts !payload
+    puts payload[0]['user_id']
     puts '------------------payload'
     return invalid_authentication if !payload || !AuthenticationTokenService.valid_payload(payload.first)
-    puts '-------------payload'
-    puts current_user!
-    puts '------------------payload'
+
     current_user!
     invalid_authentication unless @current_user
   end
@@ -25,10 +23,8 @@ class ApplicationController < ActionController::Base
     token = auth_header.split(' ').last
     puts token
     AuthenticationTokenService.decode(token)
-    # if err
-    #   nil
-    # end
-    # nil
+    rescue StandardError   
+    nil 
   end
 
   def invalid_authentication
