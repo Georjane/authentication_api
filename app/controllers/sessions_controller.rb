@@ -16,35 +16,11 @@ class SessionsController < ApplicationController
     @user ||= User.find_by(username: params.require(:username))
   end
   def parameter_missing(error)
-    puts '===================error'
-    puts error
-    puts '=================error'
     render json: { error: error.message }, status: :unprocessable_entity
   end
   def handle_unauthenticated
     render json: { error: 'Incorrect password ' }, status: :unauthorized
   end
-  # def create
-  #   user = User
-  #     .find_by(username: params['user']['username'])
-  #     .try(:authenticate, params['user']['password'])
-
-  #   if user
-  #     session[:user_id] = user.id
-  #     user_info = {
-  #       id: user[:id],
-  #       user: user[:username],
-  #       email: user[:email]
-  #     }
-  #     render json: {
-  #       status: :created,
-  #       logged_in: true,
-  #       user: user_info
-  #     }
-  #   else
-  #     render json: { status: 401 }
-  #   end
-  # end
 
   def destroy
     render json: { status: 200, loggout_out: true }

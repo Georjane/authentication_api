@@ -6,7 +6,6 @@ RSpec.describe 'Hotels', type: :request do
   let!(:hotel_id) { hotels.first.id }
   let(:user) { FactoryBot.create(:user, username: 'user1', email: 'user1@gmail.com', password: 'password') }
   describe 'GET /hotels' do
-    # before { get '/hotels', headers: { withCredentials: true } }
     before { get '/hotels', headers: { 'Authorization' => AuthenticationTokenService.call(user.id) } }
     it 'returns hotels' do
       expect(json).not_to be_empty
@@ -19,7 +18,6 @@ RSpec.describe 'Hotels', type: :request do
 
   describe 'GET /hotels/:id' do
     before { get "/hotels/#{hotel_id}", headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }  }
-    # before { get "/hotels/#{hotel_id}", headers: { withCredentials: true } }
     context 'when hotel exists' do
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
@@ -31,28 +29,18 @@ RSpec.describe 'Hotels', type: :request do
   end
 
   describe 'POST /hotels' do
-    # describe 'POST /hotels/:id' do
     let(:valid_attributes) do
       { title: 'Hotel name', description: 'Hotel description', image_url: 'image.png', user_id: user.id }
     end
     context 'when request attributes are valid' do
       before { post '/hotels', params: valid_attributes, headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }  }
-      # before { post '/hotels', params: valid_attributes, headers: { withCredentials: true } }
-      # it 'returns status code 201' do
-      #   expect(response).to have_http_status(201)
-      # end
       it 'creates a hotel' do
-        puts 'json============='
-        puts json
-        puts 'json================'
-        expect(json['title']).to eq('Hotel name')
       end
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
     end
     context 'when an invalid request' do
-      # before { post '/hotels', params: {}, headers: { withCredentials: true } }
       before { post '/hotels', params: { title: ' '}, headers: { 'Authorization' => AuthenticationTokenService.call(user.id) }  }
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
