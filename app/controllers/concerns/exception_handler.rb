@@ -11,4 +11,4 @@ module ExceptionHandler
       json_response({ errors: e.record.errors }, :unprocessable_entity)
     end
   end
- end
+end

@@ -11,6 +11,8 @@ class UserRepresenter
       token: AuthenticationTokenService.call(user.id)
     }
   end
+
   private
+
   attr_reader :user
 end

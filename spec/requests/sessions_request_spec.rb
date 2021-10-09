@@ -1,6 +1,9 @@
 RSpec.describe 'Sessions', type: :request do
   describe 'POST /sessions' do
-    let(:user) { FactoryBot.create(:user, username: 'user1', email: 'user2@gmail.com', password: 'password', password_confirmation: 'password') }
+    let(:user) do
+      FactoryBot.create(:user, username: 'user1', email: 'user2@gmail.com', password: 'password',
+                               password_confirmation: 'password')
+    end
     it 'authenticates the user' do
       post '/sessions', params: { username: user.username, password: 'password' }
       expect(response).to have_http_status(:created)
@@ -26,4 +29,4 @@ RSpec.describe 'Sessions', type: :request do
                          })
     end
   end
- end
+end

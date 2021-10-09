@@ -7,8 +7,6 @@ class FavoritesController < ApplicationController
 
   def create
     favorite = current_user!.favorites.create!(hotel_id: params[:hotel_id])
-    if favorite.save
-      json_response(favorite, :created)
-    end
+    json_response(favorite, :created) if favorite.save
   end
 end
