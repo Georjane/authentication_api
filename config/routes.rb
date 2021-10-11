@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :sessions, only: %i[create destroy]
+  resources :hotels, only: %i[index create show destroy]
+  resources :favorites, only: %i[index create]
+  resources :registrations, only: :create
+  match '/logout', to: 'sessions#destroy', via: :delete
 end
