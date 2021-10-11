@@ -5,7 +5,7 @@
 This project is a Final capstone based on a find your house app. It specifically helps the user to find vacation hotels and resorts.
 
 ## RESTful API
-You will create a REST API to manage database resources. The api has the following endpoints;
+A RESTful API to manage database resources. The api has the following endpoints;
 | Enpoints            | Fuctionality   |
 | ------------------- | -------------- |
 | POST registration/  | Sign up        |
